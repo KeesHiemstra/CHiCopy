@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MCopy.ViewModels;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,19 @@ namespace MCopy
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		public MainViewModel VM;
+
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			VM = new MainViewModel(this);
+			DataContext = VM;
+		}
+
+		private async void ScanButton_Click(object sender, RoutedEventArgs e)
+		{
+			await VM.ScanFolders();
 		}
 	}
 }

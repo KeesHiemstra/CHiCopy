@@ -32,16 +32,37 @@
         <Grid.RowDefinitions>
           <RowDefinition Height="Auto" />
           <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Path: " />
-        <TextBox x:Name="SourcePathTextBox" Grid.Column="1" />
+        <TextBox x:Name="SourcePathTextBox"
+                 Text="{Binding SourcePath}" 
+                 Grid.Column="1" />
 
         <TextBlock Grid.Row="1" Text="Filter: " />
-        <TextBox x:Name="FilterTextBox" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="FilterTextBox" 
+                 Text="{Binding Filter}"
+                 Grid.Column="1" 
+                 Grid.Row="1"/>
+        
+        <Button x:Name="ScanButton"
+                Content="Scan"
+                Click="ScanButton_Click"
+                Grid.Column="1"
+                Grid.Row="2"/>
       </Grid>
     </GroupBox>
 
-    <TreeView x:Name="FoldersTreeView" Grid.Row="3" />
+    <TreeView x:Name="FoldersTreeView" 
+              Margin="3"
+              Grid.Row="3" />
+
+    <DataGrid x:Name="CopyFilesDataGrid"
+              Margin="3"
+              Grid.Column="1"
+              Grid.Row="3">
+      
+    </DataGrid>
   </Grid>
 </Window>
